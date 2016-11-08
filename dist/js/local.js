@@ -14,7 +14,7 @@ var placeLocations = [ {
     name: "Casa do Alentejo",
     lat: 38.7158848,
     lng: -9.1422239,
-    address: "N",
+    address: "Restaurant",
     type: "R. Portas de Santo Antão, 58, 1150-268 Lisboa"
 }, {
     name: "Jardim da Estrela",

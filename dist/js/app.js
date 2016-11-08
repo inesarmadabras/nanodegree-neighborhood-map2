@@ -4,6 +4,11 @@
 
 // Initialize the map
 var map;
+// API Keys
+var yelpKey = "E9Pc__XRjHAv3nM0_4lceQ";
+var yelpToken = "NsK5cU2jXys1F2FfC0y54tANEvI5CXpe";
+var consumerSecret = "PSXmVZnZltTsFX5N2jSm_WZbqb4";
+var tokenSecret = "I-D9w0AsSDF4Itc89uwLlZol3aI";
 
 //The style of the map.
 var style = [ {
@@ -127,8 +132,8 @@ var ViewModel = function() {
     self.placeList = ko.observableArray([]);
     self.filteredPlaceList = ko.observableArray([]);
 
-    self.initialize = function() {
-        var mapCanvas = document.getElementById("google-map");
+    self.initMap = function() {
+        var mapCanvas = document.getElementById("map");
         var cenLatLng = new google.maps.LatLng(38.6766764, -9.184167);
         var mapOptions = {
             center: cenLatLng,
@@ -184,10 +189,9 @@ var ViewModel = function() {
         for (var i = 0; i < len; i++) {
             // Get the current place name & type
             var placeName = self.placeList()[i].name().toLowerCase();
-            var placeNeighborhood = self.placeList()[i].type().toLowerCase();
             // If the name or type match the search string,
             // add the place to the filtered place list
-            if (placeName.indexOf(searchString) > -1 || placeNeighborhood.indexOf(searchString) > -1) {
+            if (placeName.indexOf(searchString) > -1) {
                 self.filteredPlaceList.push(self.placeList()[i]);
                 // Set the map property of the marker to the map
                 self.placeList()[i].marker().setMap(map);
@@ -215,8 +219,8 @@ var ViewModel = function() {
         };
         // Set required parameters for authentication & search
         var parameters = {
-            oauth_consumer_key: "S46AQ1iwQtvxw_D1wQLHZA",
-            oauth_token: "TO9rPx1abdPe3lllR5Wo3WFrvz8CV9vw",
+            oauth_consumer_key: yelpKey,
+            oauth_token: yelpToken,
             oauth_nonce: nonce(20),
             oauth_timestamp: Math.floor(Date.now() / 1e3),
             oauth_signature_method: "HMAC-SHA1",
@@ -226,9 +230,6 @@ var ViewModel = function() {
             location: "Portugal",
             limit: 1
         };
-        // Set other API parameters
-        var consumerSecret = "8hqIHpplfRBLzs6YOqLZFfkx7jg";
-        var tokenSecret = "evb3bjTox8RNlfZ5Ma74hqJjZWo";
         // generates a RFC 3986 encoded, BASE64 encoded HMAC-SHA1 hash
         var signature = oauthSignature.generate(httpMethod, yelpURL, parameters, consumerSecret, tokenSecret);
         // Add signature to list of parameters
@@ -245,7 +246,7 @@ var ViewModel = function() {
                 $("#yelp-url").attr("href", response.businesses[0].url);
             },
             error: function() {
-                $("#text").html("Data could not be retrieved from yelp.");
+                $("#text").html("Data could not be retrieved from yelp.");  //display error mensage inside the infoWindow
             }
         };
         // Send off the ajaz request to Yelp
@@ -253,7 +254,7 @@ var ViewModel = function() {
     };
     // Add the listener for loading the page
     google.maps.event.addDomListener(window, "load", function() {
-        self.initialize();
+        self.initMap();
         self.buildPlaceLocations();
         self.setPlaceClickFunctions();
         self.filteredPlaceList(self.placeList());
@@ -279,9 +280,16 @@ var Place = function(data) {
     this.marker = ko.observable(marker);
 };
 
-ko.applyBindings(new ViewModel());
+// Load Knockout.js or fail gracefully with error message and page reload link
+if (typeof ko === 'object') {
+    var vm = new ViewModel();
+    ko.applyBindings(vm);
+} else {
+    alert('Error: Knockout.js did not load.Please reload to try again.');
+
+}
 
 // If google maps is not working, throw and error message.
-function googleError() {
+function mapError() {
     window.alert("Google Maps request error");
 }
