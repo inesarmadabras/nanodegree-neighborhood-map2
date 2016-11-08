@@ -34,7 +34,7 @@ Note:
 Due to various problems, I had to big changes in a short time:
 
 * Due to many problems, app.js was redone
-* All the locations are in the file local.min.js
+* All the locations are in the file `local.min.js`
 * I stop using Material Framework. Now I use only Bootstrap because I'm more comfortable with it.
 * Due to problems with the Flickr API now use the Yelp API, because I already knew how to implement it.
 * Better mobile optimization
@@ -51,7 +51,7 @@ Due to various problems, I had to big changes in a short time:
 (3) App is usable on small screen devices. Now you can see a menu button at the corner (only at mobile view).
     *Update: New button,mobile menu and mobile search bar.*
 
-(4) More HTML semantic tags.Indentation.
+(4) More HTML semantic tags. Indentation.
 
 (5) All scripts are now at the bottom of the HTML body for Page Speed Optimization
 
@@ -65,13 +65,17 @@ Due to various problems, I had to big changes in a short time:
 
 * added new locations.Locations are now at the file `local.js`
 
-* var style` is now at the top of the file
+* `var style` is now at the top of the file
 
-* initMap function is now inside of the ViewModel()
+* `initMap` function is now inside of the `ViewModel()`
 
 * API Keys are now at the top of the file.
+
+* Now I've only one instance of the InfoWindow class, that is called when needed with `infowindow.setContent`)
+
+* Loop's helper variable is declared in the for's ( `for (var i = 0; i < len; i++)` )
 
 ### app.js - Required
 * All locations show  images from Google StreetView API
 * All locations show a Yelp review.
-* Filter Search now filter the markers too (when you press search)
+* Filter Search now filters the markers too (when you press search)
