@@ -14,16 +14,17 @@ The goal of this project is to develop a single-page application featuring a map
 ## How to run?
 
 Desktop:
-* Open [inesarmadabras.github.io/nanodegree-neighborhood-map/](https://inesarmadabras.github.io/nanodegree-neighborhood-map/)
+* Open [inesarmadabras.github.io/nanodegree-neighborhood-map2/dist](https://inesarmadabras.github.io/nanodegree-neighborhood-map2/dist)
 or
 * Download the repo. Just launch index.html.
-* Use the filter box to filter list items.
+* Use the filter box to filter list items: write a name and press SEARCH.
 * Click a list item to move to the corresponding map marker and view more info.
 
 Mobile:
-* Open [inesarmadabras.github.io/Neighborhood-Map-Project/](https://inesarmadabras.github.io/nanodegree-neighborhood-map/)
-* Click on the button at the left top corner to see the menu (search and list of localizations)
+* Open [inesarmadabras.github.io/nanodegree-neighborhood-map2/dist](https://inesarmadabras.github.io/nanodegree-neighborhood-map2/dist/)
+* Click on the button at the right top corner to see the menu (search and list of localizations)
 * Click a list item to move to the corresponding map marker and view more info
+* Use the filter box to filter list items: write a name and press SEARCH.
 
 
 
@@ -36,7 +37,7 @@ Due to various problems, I had to big changes in a short time:
 * All the locations are in the file local.min.js
 * I stop using Material Framework. Now I use only Bootstrap because I'm more comfortable with it.
 * Due to problems with the Flickr API now use the Yelp API, because I already knew how to implement it.
-
+* Better mobile optimization
 
 ### index.html - Sugestions
 (1) Added theme-color
@@ -55,6 +56,8 @@ Due to various problems, I had to big changes in a short time:
 
 (7) Moved GoogleMaps API request from app.js to index.html.
 
+(8) To call an external font-family, now I use a script, at the bottom of index.php (website performance optimization)
+
 ### index.html - Required
 (6) async atribute removed.
 
@@ -65,9 +68,11 @@ Due to various problems, I had to big changes in a short time:
 
 * var style` is now at the top of the file
 
-* map function is now inside of the ViewModel()
+* initMap function is now inside of the ViewModel()
+
+* API Keys are now at the top of the file.
 
 ### app.js - Required
-All locations show  images.
+All locations show  images from Google StreetView API
 All locations show a Yelp review.
 Filter Search now filter the markers too (when you press search)
