@@ -206,7 +206,7 @@ var ViewModel = function() {
         // Use the GET method for the request
         var httpMethod = "GET";
         // Yelp API request url
-        var yelpURL = "http://api.yelp.com/v2/search/";
+        var yelpURL = "https://api.yelp.com/v2/search/";
         // nonce generator
         // function credit of: https://blog.nraboy.com/2015/03/create-a-random-nonce-string-using-javascript/
         var nonce = function(length) {
