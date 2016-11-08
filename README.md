@@ -28,7 +28,7 @@ Mobile:
 
 
 
-# Resubmission
+# Resubmission (2)
 
 Note:
 Due to various problems, I had to big changes in a short time:
@@ -38,6 +38,7 @@ Due to various problems, I had to big changes in a short time:
 * I stop using Material Framework. Now I use only Bootstrap because I'm more comfortable with it.
 * Due to problems with the Flickr API now use the Yelp API, because I already knew how to implement it.
 * Better mobile optimization
+* To call an external font-family, now I use a script, at the bottom of index.php (website performance optimization)
 
 ### index.html - Sugestions
 (1) Added theme-color
@@ -56,8 +57,6 @@ Due to various problems, I had to big changes in a short time:
 
 (7) Moved GoogleMaps API request from app.js to index.html.
 
-(8) To call an external font-family, now I use a script, at the bottom of index.php (website performance optimization)
-
 ### index.html - Required
 (6) async atribute removed.
 
@@ -73,6 +72,6 @@ Due to various problems, I had to big changes in a short time:
 * API Keys are now at the top of the file.
 
 ### app.js - Required
-All locations show  images from Google StreetView API
-All locations show a Yelp review.
-Filter Search now filter the markers too (when you press search)
+* All locations show  images from Google StreetView API
+* All locations show a Yelp review.
+* Filter Search now filter the markers too (when you press search)
