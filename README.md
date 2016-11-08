@@ -31,9 +31,9 @@ Mobile:
 # Resubmission (2)
 
 Note:
-Due to various problems, I had to big changes in a short time:
+After going to the Udacity Forum, StackOverflow and other web sources, I realized that I had many issues related with load & execution order. After arriving at a point almost with no return, I had to redo part of my project, for my sanity! So, I had to do big changes in a short time:
 
-* Due to many problems, app.js was redone
+* Due to(too) many problems, app.js was redone
 * All the locations are in the file `local.min.js`
 * I stop using Material Framework. Now I use only Bootstrap because I'm more comfortable with it.
 * Due to problems with the Flickr API now use the Yelp API, because I already knew how to implement it.
