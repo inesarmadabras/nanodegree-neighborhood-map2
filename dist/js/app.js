@@ -1,14 +1,14 @@
 //Resubmission -  single-quotes (') over double-quotes (")
 //Resubmission -  var style is now at the top of the file
 //Resubmission -  file redone
-
+'use strict'; // UPDATE 9/11 - ADDED
 // Initialize the map
 var map;
-// API Keys
-var yelpKey = "E9Pc__XRjHAv3nM0_4lceQ";
-var yelpToken = "NsK5cU2jXys1F2FfC0y54tANEvI5CXpe";
-var consumerSecret = "PSXmVZnZltTsFX5N2jSm_WZbqb4";
-var tokenSecret = "I-D9w0AsSDF4Itc89uwLlZol3aI";
+// API Keys UPDATE 9/11 - contants are in capital letters like CONSTANT_VALUE.
+var YELP_KEY = "E9Pc__XRjHAv3nM0_4lceQ";
+var YELP_TOKEN = "NsK5cU2jXys1F2FfC0y54tANEvI5CXpe";
+var CONSUMER_SECRET = "PSXmVZnZltTsFX5N2jSm_WZbqb4";
+var TOKEN_SECRET = "I-D9w0AsSDF4Itc89uwLlZol3aI";
 
 //The style of the map.
 var style = [ {
@@ -219,8 +219,8 @@ var ViewModel = function() {
         };
         // Set required parameters for authentication & search
         var parameters = {
-            oauth_consumer_key: yelpKey,
-            oauth_token: yelpToken,
+            oauth_consumer_key: YELP_KEY,
+            oauth_token: YELP_TOKEN,
             oauth_nonce: nonce(20),
             oauth_timestamp: Math.floor(Date.now() / 1e3),
             oauth_signature_method: "HMAC-SHA1",
@@ -231,7 +231,7 @@ var ViewModel = function() {
             limit: 1
         };
         // generates a RFC 3986 encoded, BASE64 encoded HMAC-SHA1 hash
-        var signature = oauthSignature.generate(httpMethod, yelpURL, parameters, consumerSecret, tokenSecret);
+        var signature = oauthSignature.generate(httpMethod, yelpURL, parameters, CONSUMER_SECRET, TOKEN_SECRET);
         // Add signature to list of parameters
         parameters.oauth_signature = signature;
         // Set up the ajax settings
