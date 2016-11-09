@@ -79,3 +79,11 @@ After going to the Udacity Forum, StackOverflow and other web sources, I realize
 * All locations show  images from Google StreetView API
 * All locations show a Yelp review.
 * Filter Search now filters the markers too (when you press search)
+
+## UPDATE 09/11
+### app.js - Sugestions
+`l.4` added `'use strict';`  tag in function definitions to enable the strict mode. This mode helps to write more "secure" codes by preventing things such as marking down a function with a bad syntax to execute or loading unused variables.
+
+`l.8`contants are in capital letters like CONSTANT_VALUE.
+
+`l.132` removed brackets [] from ko.observableArray(). They are not required, because the respective content may not necessarily inherit or have observable attributes/properties.
