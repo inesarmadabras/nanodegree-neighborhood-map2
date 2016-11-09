@@ -129,8 +129,8 @@ var infoWindow = new google.maps.InfoWindow({
 var ViewModel = function() {
     "use strict";
     var self = this;
-    self.placeList = ko.observableArray([]);
-    self.filteredPlaceList = ko.observableArray([]);
+    self.placeList = ko.observableArray();  //UPDATE 9/11 - removed brackets [] from ko.observableArray(). They are not required
+    self.filteredPlaceList = ko.observableArray();
 
     self.initMap = function() {
         var mapCanvas = document.getElementById("map");
